@@ -4,10 +4,7 @@ import java.util.*;
 
 public class lp45 {
   public static void main(String[] args) {
-    ArrayList<Integer> list = new ArrayList<Integer>();
-    list.add(3);
-    list.add(1);
-    list.add(2);
+    List<Integer> list = Arrays.asList(3, 1, 2, 5, 4);
     Collections.sort(list);
     System.out.println("Sorted list: " + list);
   }
