@@ -1,23 +1,20 @@
 // Create a program to demonstrate the Factory design pattern.
-
-abstract class Shape {
-  abstract void draw();
+interface Shape { void draw(); }
+class Circle implements Shape {
+    public void draw() { System.out.println("Circle"); }
 }
-
-class Circle extends Shape {
-  void draw() {
-    System.out.println("Drawing a circle");
-  }
+class Square implements Shape {
+    public void draw() { System.out.println("Square"); }
 }
-
 class ShapeFactory {
-  static Shape getShape(String type) {
-    return new Circle();
-  }
+    static Shape getShape(String type) {
+        return type.equals("C") ? new Circle() : new Square();
+    }
 }
-
 public class lp94 {
-  public static void main(String[] args) {
-    ShapeFactory.getShape("CIRCLE").draw();
-  }
+    public static void main(String[] args) {
+        Shape s1 = ShapeFactory.getShape("C");
+        Shape s2 = ShapeFactory.getShape("S");
+        s1.draw(); s2.draw();
+    }
 }

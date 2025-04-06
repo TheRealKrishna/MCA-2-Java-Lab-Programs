@@ -8,7 +8,7 @@
 // }
 
 // public class lp95 {
-//     public static void main(String[] args) throws Exception {
+//     public static void main(String[] args) {
 //         String json = "{\"name\":\"Krishna\", \"age\":25}";
 //         Person p = new ObjectMapper().readValue(json, Person.class);
 //         System.out.println(p.name + " - " + p.age);

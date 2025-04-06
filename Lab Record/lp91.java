@@ -6,8 +6,8 @@ interface Area {
 
 class lp91 {
   public static void main(String[] args) {
-    double radius = 5.0;
-    Area area = r -> Math.PI * r * r;
+    double radius = 1.7;
+    Area area = r -> (Math.PI * r * r);
     System.out.println("Area of the circle: " + area.calculate(radius));
   }
 }

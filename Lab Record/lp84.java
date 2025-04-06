@@ -8,8 +8,7 @@ class lp84 {
         { 100, 0, 10, 60, 0 } };
     int[] d = { 0, 999, 999, 999, 999 };
     PriorityQueue<int[]> q = new PriorityQueue<>(Comparator.comparingInt(i -> i[1]));
-    q.add(new int[] { 0, 0 });
-    while (!q.isEmpty())
+    for (q.add(new int[] { 0, 0 }); !q.isEmpty();)
       for (int v = 0, u[] = q.poll(); v < 5; v++)
         if (g[u[0]][v] > 0 && u[1] + g[u[0]][v] < d[v])
           q.add(new int[] { v, d[v] = u[1] + g[u[0]][v] });
