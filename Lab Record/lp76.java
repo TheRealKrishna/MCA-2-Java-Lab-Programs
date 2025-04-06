@@ -1,33 +1,23 @@
 // Create a program to implement a producer-consumer problem.
 
 class lp76 {
-  public static void main(String[] args) {
+  public static void main(String[] a) {
     final Object lock = new Object();
-    int[] buffer = new int[1];
-    Thread producer = new Thread(() -> {
+    int[] b = new int[1];
+    new Thread(() -> {
       for (int i = 0; i < 3; i++)
         synchronized (lock) {
-          try {
-            lock.wait();
-          } catch (Exception e) {
-          }
-          buffer[0] = i;
-          System.out.println("Produced: " + i);
+          b[0] = i;
+          System.out.println("P: " + i);
           lock.notify();
-        }
-    });
-    Thread consumer = new Thread(() -> {
+          try { lock.wait(); } catch (Exception e) {}
+        }}).start();
+    new Thread(() -> {
       for (int i = 0; i < 3; i++)
         synchronized (lock) {
-          System.out.println("Consumed: " + buffer[0]);
+          System.out.println("C: " + b[0]);
           lock.notify();
-          try {
-            lock.wait();
-          } catch (Exception e) {
-          }
-        }
-    });
-    producer.start();
-    consumer.start();
+          try { lock.wait(); } catch (Exception e) {}
+        }}).start();
   }
 }

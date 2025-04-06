@@ -3,23 +3,19 @@
 class Node {
   int data;
   Node left, right;
-
   Node(int value) {
     data = value;
   }
 }
-
 class lp85 {
   Node root;
-
   void inOrderTraversal(Node node) {
-    if (node == null)
-      return;
-    inOrderTraversal(node.left);
-    System.out.print(node.data + " ");
-    inOrderTraversal(node.right);
+    if (node != null) {
+      inOrderTraversal(node.left);
+      System.out.print(node.data + " ");
+      inOrderTraversal(node.right);
+    }
   }
-
   public static void main(String[] args) {
     lp85 tree = new lp85();
     tree.root = new Node(1);

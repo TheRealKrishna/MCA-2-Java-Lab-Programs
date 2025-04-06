@@ -1,7 +1,7 @@
 // Create a program to implement inter-thread communication.
 
 class SharedResource {
-  private boolean available = false;
+  boolean available = false;
   public synchronized void produce() throws InterruptedException {
     while (available) wait();
     System.out.println("Producing..."); available = true; notify();
@@ -14,8 +14,8 @@ class SharedResource {
 
 public class lp74 {
   public static void main(String[] args) {
-    SharedResource resource = new SharedResource();
-    new Thread(() -> { try { for (int i = 0; i < 3; i++) resource.produce(); } catch (InterruptedException e) {} }).start();
-    new Thread(() -> { try { for (int i = 0; i < 3; i++) resource.consume(); } catch (InterruptedException e) {} }).start();
+    SharedResource r = new SharedResource();
+    new Thread(() -> { try { for (int i = 0; i < 3; i++) r.produce(); } catch (InterruptedException e) {} }).start();
+    new Thread(() -> { try { for (int i = 0; i < 3; i++) r.consume(); } catch (InterruptedException e) {} }).start();
   }
 }

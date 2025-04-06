@@ -1,7 +1,7 @@
 // Create a program to use a custom exception to validate user input.
 
-class InvalidInputException extends Exception {
-  InvalidInputException(String message) {
+class Ex extends Exception {
+  Ex(String message) {
     super(message);
   }
 }
@@ -9,15 +9,12 @@ class InvalidInputException extends Exception {
 public class lp70 {
   public static void main(String[] args) {
     try {
-      validateInput("invalidInput");
-    } catch (InvalidInputException e) {
+      String input = "invalidInput";
+      if (!input.matches("\\d+"))
+        throw new Ex("Invalid input: " + input);
+      System.out.println("Valid input: " + input);
+    } catch (Ex e) {
       System.out.println(e.getMessage());
     }
-  }
-
-  static void validateInput(String input) throws InvalidInputException {
-    if (!input.matches("\\d+"))
-      throw new InvalidInputException("Invalid input: " + input);
-    System.out.println("Valid input: " + input);
   }
 }

@@ -1,30 +1,27 @@
 // Write a program to demonstrate thread synchronization.
 
 class Counter {
-  private int count = 0;
+  public int c = 0;
   public synchronized void increment() {
-    count++;
-  }
-  public int getCount() {
-    return count;
+    c++;
   }
 }
 
 public class lp73 {
   public static void main(String[] args) throws InterruptedException {
-    Counter counter = new Counter();
+    Counter c = new Counter();
     Thread t1 = new Thread(() -> {
       for (int i = 0; i < 1000; i++)
-        counter.increment();
+        c.increment();
     });
     Thread t2 = new Thread(() -> {
       for (int i = 0; i < 1000; i++)
-        counter.increment();
+        c.increment();
     });
     t1.start();
     t2.start();
     t1.join();
     t2.join();
-    System.out.println("Final count: " + counter.getCount());
+    System.out.println("Final count: " + c.c);
   }
 }

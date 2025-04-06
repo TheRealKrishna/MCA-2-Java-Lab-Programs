@@ -6,7 +6,7 @@ class lp75 {
     Thread t2 = new Thread(() -> System.out.println("Low Priority"));
     t1.setPriority(Thread.MAX_PRIORITY);
     t2.setPriority(Thread.MIN_PRIORITY);
-    t2.start();
     t1.start();
+    t2.start();
   }
 }
