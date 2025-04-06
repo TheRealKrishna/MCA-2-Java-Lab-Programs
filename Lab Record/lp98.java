@@ -2,21 +2,16 @@
 
 import java.util.*;
 
-class Person {
-  String name;
-  int age;
-
-  Person(String name, int age) {
-    this.name = name;
-    this.age = age;
-  }
+class P {
+  String n; int a;
+  P(String n, int a) { this.n = n; this.a = a; }
 }
 
 public class lp98 {
   public static void main(String[] args) {
-    List<Person> people = Arrays.asList(
-        new Person("Alice", 25), new Person("Bob", 30), new Person("Charlie", 20));
-    people.sort((p1, p2) -> Integer.compare(p1.age, p2.age));
-    people.forEach(p -> System.out.println(p.name + ": " + p.age));
+    List<P> p = Arrays.asList(new P("A",25), new P("B",30), new P("C",20));
+    p.sort(Comparator.comparingInt(x -> x.a));
+    p.forEach(x -> System.out.println(x.n + ": " + x.a));
   }
 }
+

@@ -3,6 +3,6 @@
 @interface MyAnn {}
 @MyAnn class lp96 {
   public static void main(String[] a) {
-    System.out.println("Annotated");
+    System.out.println("Annotated!");
   }
 }
