@@ -1,10 +1,17 @@
 // Create a program to serialize and deserialize an object.
 
 import java.io.*;
+
 class Person implements Serializable {
-  String name; int age;
-  Person(String name, int age) { this.name = name; this.age = age; }
+  String name;
+  int age;
+
+  Person(String name, int age) {
+    this.name = name;
+    this.age = age;
+  }
 }
+
 public class lp88 {
   public static void main(String[] args) throws Exception {
     ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("person.ser"));
